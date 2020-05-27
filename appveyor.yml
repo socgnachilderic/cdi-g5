@@ -11,7 +11,7 @@ install:
 
 test_script:
   - pytest --cov=. --cov-report html test.py
-  - flake8 crud --max-line-length=100
+  - flake8 --max-line-length=100
 
 after_test:
   - locust --headless -u 10 -r 5 -H "https://cdi-g5.herokuapp.com" --run-time 20
