@@ -1,0 +1,29 @@
+branches:
+  only:
+    - master
+
+build: off
+
+install:
+  - SET PATH=C:\\Python37;C:\\Python37\\Scripts;%PATH%
+  - pip3 install --no-cache-dir pipenv
+  - pipenv install --dev --skip-lock --system
+
+#test_script:
+#  - echo "=========================== Mise en route des tests... ==========================="
+#  - coverage run manage.py test
+#  - flake8 crud --max-line-length=100
+#
+#after_test:
+#  - echo "=========================== L'après test... ==========================="
+#  - locust --headless -u 10 -r 5 -H "http://isjgroupe5.herokuapp.com" --run-time 20
+
+#before_deploy:
+#  - echo "=========================== préparation du déploiement... ==========================="
+#  - apt-get update -qy
+#  - apt-get install -y ruby-dev
+#  - gem install dpl
+#deploy:
+#  - provider: heroku
+#    name: "test-fueltracker"
+#    site_name: $(site_to_deploy)

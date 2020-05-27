@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CDI Appveyor & Heroku</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Membre Groupe 5</h1>
+        <ul>
+            {% for member in members %}
+                <li>{{ member }}</li>
+            {% endfor %}
+        </ul>
+        <button>Plus</button>
+    </div>
+</body>
+</html>
