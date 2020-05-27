@@ -9,21 +9,9 @@ install:
   - pip3 install --no-cache-dir pipenv
   - pipenv install --dev --skip-lock --system
 
-#test_script:
-#  - echo "=========================== Mise en route des tests... ==========================="
-#  - coverage run manage.py test
-#  - flake8 crud --max-line-length=100
-#
-#after_test:
-#  - echo "=========================== L'après test... ==========================="
-#  - locust --headless -u 10 -r 5 -H "http://isjgroupe5.herokuapp.com" --run-time 20
+test_script:
+  - pytest --cov=. --cov-report html test.py
+  - flake8 crud --max-line-length=100
 
-#before_deploy:
-#  - echo "=========================== préparation du déploiement... ==========================="
-#  - apt-get update -qy
-#  - apt-get install -y ruby-dev
-#  - gem install dpl
-#deploy:
-#  - provider: heroku
-#    name: "test-fueltracker"
-#    site_name: $(site_to_deploy)
+after_test:
+  - locust --headless -u 10 -r 5 -H "https://cdi-g5.herokuapp.com" --run-time 20
